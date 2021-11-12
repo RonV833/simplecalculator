@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,64 +8,74 @@
     <title>Simple Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>SIMPLE CALCULATOR</h1>
-    <table class = "calculator" >
+    <table class="calculator">
         <tr>
             <td>RV-C</td>
         </tr>
         <tr>
-        <td colspan="3"> <input class = "panel" type = "text" id = "result" /> </td>
+            <td colspan="3"> <input class="panel" type="text" id="result" /> </td>
         </tr>
         <tr>
-            <td> <input class = "button" type = "button" value = "7" onclick = "display('7')" /> </td>
-            <td> <input class = "button" type = "button" value = "8" onclick = "display('8')" /> </td>
-            <td> <input class = "button" type = "button" value = "9" onclick = "display('9')" /> </td>
+            <td> <input class="button" type="button" value="7" onclick="display('7')" /> </td>
+            <td> <input class="button" type="button" value="8" onclick="display('8')" /> </td>
+            <td> <input class="button" type="button" value="9" onclick="display('9')" /> </td>
         </tr>
         <tr>
-            <td> <input class = "button" type = "button" value = "4" onclick = "display('4')" /> </td>
-            <td> <input class = "button" type = "button" value = "5" onclick = "display('5')" /> </td>
-            <td> <input class = "button" type = "button" value = "6" onclick = "display('6')" /> </td>
+            <td> <input class="button" type="button" value="4" onclick="display('4')" /> </td>
+            <td> <input class="button" type="button" value="5" onclick="display('5')" /> </td>
+            <td> <input class="button" type="button" value="6" onclick="display('6')" /> </td>
         </tr>
         <tr>
-            <td> <input class = "button" type = "button" value = "1" onclick = "display('1')" /> </td>
-            <td> <input class = "button" type = "button" value = "2" onclick = "display('2')" /> </td>
-            <td> <input class = "button" type = "button" value = "3" onclick = "display('3')" /> </td>
+            <td> <input class="button" type="button" value="1" onclick="display('1')" /> </td>
+            <td> <input class="button" type="button" value="2" onclick="display('2')" /> </td>
+            <td> <input class="button" type="button" value="3" onclick="display('3')" /> </td>
         </tr>
         <tr>
-            
-            <td> <input class = "button" type = "button" value = "/" onclick = "display('/')" /> </td>
-            <td> <input class = "button" type = "button" value = "+" onclick = "display('+')" /> </td>
-            <td> <input class = "button" type = "button" value = "*" onclick = "display('*')" /> </td>
-        </tr>
-        <tr>
-            <td> <input class = "button" type = "button" value = "-" onclick = "display('-')" /> </td>
-            <td> <input class = "button" type = "button" value = "." onclick = "display('.')" /> </td>
-            <td> <input class = "button" type = "button" value = "%" onclick = "display('%')" /> </td>
-        </tr>
-        <tr>
-            <td> <input class = "button" type = "button" value = "Clear" onclick = "AC()"/> </td>
-            <td> <input class = "button" type = "button" value = "=" onclick = "cal()" /> </td>
-            <td> <input class = "button" type = "button" value = "0" onclick = "display('0')" /> </td>
-        </tr>
-        </table>
 
-<script>
-   
-    //to get the values in the button and display it
-    display=(value)=> {
-        document.getElementById("result").value += value;
-    }
-    //to solve for the inputed values using calc function
-    cal=()=> {
-        var x = document.getElementById("result").value;
-        var y = eval(x);  //using eval function to evaluate the inputted values
-        document.getElementById("result").value = y;
-    }
-    // to delete the display on the screen
-    AC=() =>{
-        document.getElementById("result").value = "";
-    }
-</script>
+            <td> <input class="button" type="button" value="/" onclick="display('/')" /> </td>
+            <td> <input class="button" type="button" value="+" onclick="display('+')" /> </td>
+            <td> <input class="button" type="button" value="*" onclick="display('*')" /> </td>
+        </tr>
+        <tr>
+            <td> <input class="button" type="button" value="-" onclick="display('-')" /> </td>
+            <td> <input class="button" type="button" value="." onclick="display('.')" /> </td>
+            <td> <input class="button" type="button" value="%" onclick="display('%')" /> </td>
+        </tr>
+        <tr>
+            <td> <input class="button" type="button" value="Clear" onclick="AC()" /> </td>
+            <td> <input class="button" type="button" value="=" onclick="cal()" /> </td>
+            <td> <input class="button" type="button" value="0" onclick="display('0')" /> </td>
+        </tr>
+    </table>
+
+    <script>
+
+        //to get the values in the button and display it
+        display = (value) => {
+            document.getElementById("result").value += value;
+        }
+        //to solve for the inputed values using calc function
+        cal = () => {
+            var x = document.getElementById("result").value;
+            //var y = eval(x);  //using eval function to evaluate the inputted values
+            //document.getElementById("result").value = y;
+            try {
+            var y = eval(x); 
+            document.getElementById("result").value = y;
+            }
+            catch {
+            document.getElementById("result").value ="Error";
+            }
+        }
+
+        // to delete the display on the screen
+        AC = () => {
+            document.getElementById("result").value = "";
+        }
+    </script>
 </body>
+
 </html>
